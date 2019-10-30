@@ -1,0 +1,25 @@
+version: "3.0"
+services:
+  fess:
+    build: ./fess
+    volumes:
+      - ./books:/var/tmp/books
+    ports:
+      - "8080:8080"
+      - "9200:9200"
+      - "9300:9300"
+    # environment:
+    #   - ES_HTTP_URL=http://elasticsearch:9200
+    #   - ES_TRANSPORT_URL=elasticsearch:9300
+    #   - FESS_DICTIONARY_PATH=/usr/share/elasticsearch/config/
+  #   depends_on:
+  #     - elasticsearch
+  # elasticsearch:
+  #   build: ./elasticsearch
+  #   environment:
+  #     - FESS_DICTIONARY_PATH=/usr/share/elasticsearch/config/
+  #     - discovery.type=single-node
+  #     - bootstrap.memory_lock=true
+  #   ports:
+  #     - "9200:9200"
+  #     - "9300:9300"
